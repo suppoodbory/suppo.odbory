@@ -1,126 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document Portal</title>
+    <title>Landing Page</title>
     <style>
-        /* Base Styles - Strict Black and White, Sans-Serif */
-        body {
-            background-color: #ffffff;
-            color: #000000;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        /* Základné nastavenia a bezpečné písmo */
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
+            color: #333333;
+        }
+
+        /* Navigácia (Menu) */
+        header {
+            background-color: #ffffff;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        nav {
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .logo {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+        .nav-links li {
+            margin-left: 20px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #333333;
+            font-weight: 500;
+        }
+
+        /* Spoločné nastavenia pre sekcie */
+        section {
+            padding: 100px 20px 80px 20px; /* Horný padding kvôli fixnému menu */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-        }
-
-        /* Container for Landing Page */
-        .landing-container {
-            max-width: 600px;
-            width: 100%;
-            padding: 40px 20px;
-            box-sizing: border-box;
             text-align: center;
         }
-
-        /* Header and Titles */
-        h1 {
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+        h2 {
             font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -0.05em;
-            margin-bottom: 10px;
-            text-transform: uppercase;
+            margin-bottom: 20px;
         }
-
-        .divider {
-            height: 4px;
-            background-color: #000000;
-            width: 60px;
-            margin: 20px auto;
-        }
-
-        /* Description & Info Text */
         p {
             font-size: 1.1rem;
-            color: #000000;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
         }
 
-        .info-box {
-            border: 2px solid #000000;
-            padding: 20px;
-            margin-bottom: 40px;
-            text-align: left;
-            font-size: 0.95rem;
+        /* Rôzne farby pozadia pre každú sekciu */
+        #o-nas {
+            background-color: #f0f4f8; /* Svetlá sivo-modrá */
+        }
+        #dokumenty {
+            background-color: #e6f7ed; /* Svetlozelená */
+        }
+        #kontakt {
+            background-color: #fff9db; /* Svetložltá */
         }
 
-        .info-box h2 {
-            margin-top: 0;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-        }
-
-        /* Main Menu / Directory Link Button */
-        .btn-link {
-            display: inline-block;
-            background-color: #000000;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 15px 30px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            transition: background-color 0.2s ease, color 0.2s ease;
-        }
-
-        /* Simple Hover State */
-        .btn-link:hover {
-            background-color: #ffffff;
-            color: #000000;
-            border: 2px solid #000000;
-            padding: 13px 28px; /* Adjusts for border thickness */
-        }
-
-        /* Footer */
-        footer {
-            margin-top: 60px;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
+        /* Responzivita pre menšie obrazovky (mobily) */
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .nav-links {
+                padding: 0;
+            }
+            .nav-links li {
+                margin: 0 10px;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            section {
+                padding-top: 140px; /* Viac miesta kvôli väčšiemu menu na mobile */
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="landing-container">
-        <header>
-            <h1>Archive</h1>
-            <div class="divider"></div>
-        </header>
+    <header>
+        <nav>
+            <div class="logo">MojaStránka</div>
+            <ul class="nav-links">
+                <li><a href="#o-nas">O nás</a></li>
+                <li><a href="#dokumenty">Dokumenty</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <main>
-            <p>Welcome to the central landing repository. This page provides direct access to organized files, records, and system text files.</p>
-            
-            <div class="info-box">
-                <h2>System Information</h2>
-                • All assets are stored in uncompressed formats.<br>
-                • Directory access is restricted to read-only mode.<br>
-                • Updates are logged automatically upon file transfer.
-            </div>
+    <section id="o-nas">
+        <div class="container">
+            <h2>O nás</h2>
+            <p>Vitajte na našej stránke. Sme tím nadšencov, ktorí sa venujú vytváraniu jednoduchých a efektívnych riešení pre našich klientov.</p>
+            <p>Naším cieľom je prinášať hodnotu prostredníctvom čistého dizajnu a jasnej komunikácie. Veríme, že v jednoduchosti je krása.</p>
+        </div>
+    </section>
 
-            <a href="/dokumenty/" class="btn-link">Open Dokumenty Directory</a>
-        </main>
+    <section id="dokumenty">
+        <div class="container">
+            <h2>Dokumenty</h2>
+            <p>V tejto sekcii nájdete všetky dôležité materiály, príručky a dokumenty na stiahnutie.</p>
+            <p>Všetky súbory sú pravidelne aktualizované, aby ste mali vždy prístup k najnovším informáciám.</p>
+        </div>
+    </section>
 
-        <footer>
-            Internal Use Only
-        </footer>
-    </div>
+    <section id="kontakt">
+        <div class="container">
+            <h2>Kontakt</h2>
+            <p>Máte otázky? Neváhajte nás kontaktovať. Sme tu pre vás každý pracovný deň.</p>
+            <p><strong>Email:</strong> info@mojastranka.sk</p>
+            <p><strong>Telefón:</strong> +421 900 123 456</p>
+            <p><strong>Adresa:</strong> Hlavná ulica 12, 811 01 Bratislava</p>
+        </div>
+    </section>
 
 </body>
 </html>
